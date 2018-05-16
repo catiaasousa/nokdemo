@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+<p><strong>Summary:</strong><br>{{ summary }}</p>
+<p><strong>Description:</strong><br>{{ description }}</p>
+  <table class="tg">
+    <caption>Affected CGRs</caption>
+    <thead class="tg-yw4l"
+    <tr>
+      <th>CGR</th>
+      <th>Events</th>
+      <th>MSS</th>
+      <th>SPC</th>
+    </tr>
+    </thead>
+    {% for item in items %}
+    <tr>
+      <td>{{ item['cgr'] }}</td>
+      <td>{{ item['countcgr'] }}</td>
+      <td>{{ item['mss'] }}</td>
+      <td>{{ item['name'] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <div>
+    <p>
+      <br>
+      <button type="button" onclick="window.location.href='{{ url_for('upload_file') }}';">Back to Home</button>
+    </p>
+  </div>
+{% endblock %}

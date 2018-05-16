@@ -1,0 +1,3 @@
+export ST2_ADDRESS=localhost
+export API_KEY=ZTNlNjM0NzY1ZDE0ZDEyZjNmNTc3MzNiMjUwOGI4MWQ1MGFmM2RlMGNjNmIwMGM3Yzg4MDllYmMxZTI4NjNhOA
+python nokdemo/app.py
