@@ -1,1 +1,0 @@
-from .nokdemo import app

@@ -1,3 +1,0 @@
-graft nokdemo/templates
-graft nokdemo/static
-include nokdemo/schema.sql
