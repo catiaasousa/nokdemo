@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="container">
+    <form method="POST">
+        <div>
+            <p><br></p>  
+            <table class="tg">
+                <thead class="tg-yw4l">
+                <tr>
+                    <th>CGR Command</th>
+                    <th>NET</th>
+                    <th>SPC</th>
+                </tr>
+                </thead>
+                {% for data, circuit in zip %}
+                    <tr data-toggle="fieldset-entry">
+                        <td>ZRCI:SEA=3:CGR={{ data.cgr }}:PRINT=2;</td>
+                        <td>{{ circuit.net(size=10) }}</td>
+                        <td>{{ circuit.spc(size=10) }}</td>
+                    </tr>
+                    {{ circuit.text|safe }}
+                {% endfor %}
+            </table>
+        </div>
+        {% if form.errors %}
+            {{ form.errors }}
+        {% endif %}
+        {{ form.hidden_tag() }}
+        <p>{{ form.submit() }}</p>
+  </form>
+</div>
+{% endblock %}
