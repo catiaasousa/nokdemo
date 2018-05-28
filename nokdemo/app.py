@@ -16,8 +16,8 @@ import argparse
 
 parser = argparse.ArgumentParser()
 #parser.add_argument("stack_address", default='192.168.230.131', help="ip or fqdn address of running StackStorm server")
-parser.add_argument("--stack_address", default=os.environ["ST2_ADDRESS"], help="ip or fqdn address of running StackStorm server")
-parser.add_argument("--api_key", default=os.environ["API_KEY"], help="API Key for your StackStorm Webhook")
+parser.add_argument("-s", "--stack_address", default=os.environ["ST2_ADDRESS"], help="ip or fqdn address of running StackStorm server")
+parser.add_argument("-a", "--api_key", default=os.environ["API_KEY"], help="API Key for your StackStorm Webhook")
 args = parser.parse_args()
 #sys._enablelegacywindowsfsencoding()
 

@@ -86,7 +86,7 @@ sudo yum install git
 1. Clone project from GitHub
 
 ```bash
-https://github.com/elefedefe/nokdemo.git
+git clone https://github.com/elefedefe/nokdemo.git
 cd nokdemo
 ```
 
@@ -116,8 +116,18 @@ pip install -r nokdemo/requirements.txt
 
 6. Run the application
 
+The application can be executed in two ways:
+
+1. Editing the `startapp.sh` file and replacing the values for `ST2_ADDRESS` and `API_KEY` with their values, then executing it:
+
 ```bash
-python nokdemo/app.py <ST2_URL> <API_KEY_VALUE>
+./startapp.sh
+```
+
+2. Directly executing the `app.py` script using as arguments the values of `ST2_ADDRESS` and `API_KEY`
+
+```bash
+python nokdemo/app.py -s <ST2_URL> - a <API_KEY_VALUE>
 ```
 
 ## User guide
