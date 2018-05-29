@@ -16,9 +16,15 @@ import argparse
 
 parser = argparse.ArgumentParser()
 #parser.add_argument("stack_address", default='192.168.230.131', help="ip or fqdn address of running StackStorm server")
-parser.add_argument("-s", "--stack_address", default=os.environ["ST2_ADDRESS"], help="ip or fqdn address of running StackStorm server")
-parser.add_argument("-a", "--api_key", default=os.environ["API_KEY"], help="API Key for your StackStorm Webhook")
+#parser.add_argument("-s", "--st2address", default=os.environ["ST2_ADDRESS"], help="ip or fqdn address of running StackStorm server")
+#parser.add_argument("-a", "--apikey", default=os.environ["API_KEY"], help="API Key for your StackStorm Webhook")
+parser.add_argument("-s", "--st2address", default=os.environ.get('ST2_ADDRESS', None), help="ip or fqdn address of running StackStorm server")
+parser.add_argument("-a", "--apikey", default=os.environ.get('API_KEY', None), help="API Key for your StackStorm Webhook")
+
 args = parser.parse_args()
+if not args.st2address or not args.apikey:
+    exit(parser.print_usage())
+
 #sys._enablelegacywindowsfsencoding()
 
 app = Flask(__name__) # create the application instance :)
@@ -36,8 +42,8 @@ app.config.update(dict(
     CSV = os.path.join(app.root_path, 'uploads', 'source.csv'),
     CSV_COLS = ['TNES','A CGR','B CGR','A Direction Number','B Address Number','B MSRN','Call Start Time','DX Cause','Release Part'],
     SOURCE_TABLE = 'tblData',
-    WEBHOOK_URL = 'https://'+ args.stack_address + '/api/v1/webhooks/nokdemo',
-    ST2_API_KEY = args.api_key
+    WEBHOOK_URL = 'https://'+ args.st2address + '/api/v1/webhooks/nokdemo',
+    ST2_API_KEY = args.apikey
 ))
 
 app.config.from_envvar('NOKDEMO_SETTINGS', silent=True)
