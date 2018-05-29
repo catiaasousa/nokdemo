@@ -127,7 +127,7 @@ The application can be executed in two ways:
 2. Directly executing the `app.py` script using as arguments the values of `ST2_ADDRESS` and `API_KEY`
 
 ```bash
-python nokdemo/app.py -s <ST2_URL> - a <API_KEY_VALUE>
+python nokdemo/app.py -s <ST2_URL> -a <API_KEY_VALUE>
 ```
 
 ## User guide
